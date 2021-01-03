@@ -1,18 +1,10 @@
-import { createMedia } from "@artsy/fresnel";
 import React, { useState } from "react";
 import { Button, Label, Menu, Image } from "semantic-ui-react";
 
-const { MediaContextProvider, Media } = createMedia({
-  breakpoints: {
-    mobile: 0,
-    tablet: 768,
-    computer: 1024,
-  },
-})
-
 const MenuBar = () => {
 
-  
+  const [fixedMenu, setfixedMenu] = useState(true);
+  const [hideMenu, setHideMenu] = useState(true);
 
   return (
     <Menu secondary size="large">
