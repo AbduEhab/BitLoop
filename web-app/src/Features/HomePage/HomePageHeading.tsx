@@ -1,66 +1,90 @@
-import React, { useState } from "react";
-import { animated, useSpring } from "react-spring";
-import { Container, Header, List, Segment } from "semantic-ui-react";
-
-const words: String[] = ["Design", "Development", "Maintenance"];
+import { gsap } from "gsap";
+import React, { useEffect } from "react";
+import { Container, Header, List, Image } from "semantic-ui-react";
 
 export const HomePageHeading = () => {
-  const [index, setIndex] = useState(0);
-  const word: String = words[index];
-  const increment = () => setIndex((index) => (index > 2 ? 0 : index + 1));
-  setInterval(increment, 2000);
-
-  const mainDiv = useSpring({
-    from: { opacity: 0 },
-    to: { opacity: 1 },
-    delay: 100,
-    config: { duration: 800, friction: 50 },
-  });
+  useEffect(() => {
+    gsap.fromTo(
+      ".MainText",
+      { opacity: 0, y: -50 },
+      {
+        opacity: 100,
+        duration: 0.8,
+        ease: "circ.out",
+        y: 0,
+        stagger: 0.9,
+      }
+    );
+    gsap.from(".SecondStage", {
+      opacity: 0,
+      delay: 2.9,
+      duration: 1.6,
+      ease: "Power3.ease",
+      stagger: 0.1,
+    });
+  }, []);
 
   return (
-    <animated.div style={mainDiv}>
-      <video
-        src="./Assets/sample.mp4"
-        autoPlay
-        loop
-        muted
+    <div>
+      <Image
         style={{
-          objectFit: "cover",
-          position: "fixed",
+          display: "block",
+          position: "absolute",
+          marginLeft: "auto",
+          marginRight: "auto",
           width: "100%",
-          height: "100%",
-          top: "0%",
-          transform: "translate(0%,-10%)",
+          transform: "translate(0%,-37.5%)",
           zIndex: -1,
         }}
+        className="SecondStage"
+        src="./Assets/headerOverlay.png"
       />
-      <Container text>
+      <Container className="MainText">
         <Header
+          className="MainText"
           as="h1"
-          content="BitLoop"
-          inverted
+          content="NeoHex"
           style={{
-            fontSize: "5em",
-            fontWeight: "normal",
+            fontSize: "6em",
+            fontWeight: "bold",
             marginBottom: 40,
-            marginTop: "4em",
+            marginTop: "5em",
+            color: "#DAA7A2",
           }}
         />
         <List horizontal inverted>
           <List.Item>
             <Header
+              className="MainText"
               as="h2"
-              inverted
-              content="Simplified"
+              content="The Web Simplified"
               style={{
-                marginBottom: 640,
+                fontWeight: "bold",
+                marginBottom: 580,
+                color: "#DAA7A2",
               }}
             />
           </List.Item>
           <List.Item></List.Item>
         </List>
       </Container>
-      <Segment></Segment>
-    </animated.div>
+
+      <video
+        className="SecondStage"
+        src="./Assets/sample3.mp4"
+        autoPlay
+        loop
+        muted
+        style={{
+          objectFit: "cover",
+          position: "absolute",
+          width: "100%",
+          height: "92%",
+          top: "0%",
+          transform: "translate(0%,0%)",
+          zIndex: -1,
+        }}
+      />
+    </div>
   );
 };

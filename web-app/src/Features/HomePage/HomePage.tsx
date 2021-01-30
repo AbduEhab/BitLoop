@@ -1,4 +1,5 @@
 import React from "react";
+import { HomePageBody } from "./HomePageBody";
 import { HomePageHeading } from "./HomePageHeading";
 
 export const HomePage = () => {
@@ -12,5 +13,10 @@ export const HomePage = () => {
   //   setfixedMenu(false);
   // };
 
-  return <HomePageHeading />;
+  return (
+    <div>
+      <HomePageHeading />
+      <HomePageBody />
+    </div>
+  );
 };
