@@ -25,50 +25,7 @@ export const HomePageHeading = () => {
   }, []);
 
   return (
-    <div>
-      <Image
-        style={{
-          display: "block",
-          position: "absolute",
-          marginLeft: "auto",
-          marginRight: "auto",
-          width: "100%",
-          transform: "translate(0%,-45.6%)",
-          zIndex: -1,
-        }}
-        className="SecondStage"
-        src="./Assets/headerOverlay.png"
-      />
-      <Container className="MainText">
-        <Header
-          className="MainText"
-          as="h1"
-          content="NeoHex"
-          style={{
-            fontSize: "6em",
-            fontWeight: "bold",
-            marginBottom: 40,
-            marginTop: "5em",
-            color: "#DAA7A2",
-          }}
-        />
-        <List horizontal inverted>
-          <List.Item>
-            <Header
-              className="MainText"
-              as="h2"
-              content="The Web Simplified"
-              style={{
-                fontWeight: "bold",
-                marginBottom: 600,
-                color: "#DAA7A2",
-              }}
-            />
-          </List.Item>
-          <List.Item></List.Item>
-        </List>
-      </Container>
-
+    <div id="main" style={{ height: window.innerHeight - 100 }}>
       <video
         className="SecondStage"
         src="./Assets/sample1.mp4"
@@ -76,15 +33,51 @@ export const HomePageHeading = () => {
         loop
         muted
         style={{
+          boxSizing: "border-box",
           objectFit: "cover",
           position: "absolute",
           width: "100%",
-          height: "92%",
+          height: "calc(100% - 100px)",
+          borderRadius: "0px 0px 50px 50px",
           top: "0%",
-          transform: "translate(0%,0%)",
           zIndex: -2,
         }}
       />
+
+      <List
+        inverted
+        style={{
+          paddingTop: window.innerHeight / 3,
+          paddingLeft: window.innerWidth / 5,
+          paddingRight: window.innerWidth / 5,
+        }}
+      >
+        <List.Item>
+          <Header
+            className="MainText"
+            as="h1"
+            content="NeoHex"
+            style={{
+              fontSize: "6em",
+              fontWeight: "bold",
+              marginBottom: 40,
+              color: "#DAA7A2",
+            }}
+          />
+        </List.Item>
+        <List.Item>
+          <Header
+            className="MainText"
+            as="h2"
+            content="The Web Simplified"
+            style={{
+              fontWeight: "bold",
+              color: "#DAA7A2",
+            }}
+          />
+        </List.Item>
+      </List>
+      <br style={{}} />
     </div>
   );
 };

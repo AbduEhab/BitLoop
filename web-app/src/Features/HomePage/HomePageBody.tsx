@@ -67,7 +67,7 @@ export const HomePageBody = () => {
       <Container
         className="leadingSection"
         textAlign="center"
-        style={{ marginBottom: 20 }}
+        style={{ paddingBottom: 20 }}
       >
         <Grid textAlign="center" columns={2} padded>
           <Grid.Row>
