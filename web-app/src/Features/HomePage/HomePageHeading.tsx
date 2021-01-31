@@ -33,7 +33,7 @@ export const HomePageHeading = () => {
           marginLeft: "auto",
           marginRight: "auto",
           width: "100%",
-          transform: "translate(0%,-37.5%)",
+          transform: "translate(0%,-45.6%)",
           zIndex: -1,
         }}
         className="SecondStage"
@@ -60,7 +60,7 @@ export const HomePageHeading = () => {
               content="The Web Simplified"
               style={{
                 fontWeight: "bold",
-                marginBottom: 580,
+                marginBottom: 600,
                 color: "#DAA7A2",
               }}
             />
@@ -71,7 +71,7 @@ export const HomePageHeading = () => {
 
       <video
         className="SecondStage"
-        src="./Assets/sample3.mp4"
+        src="./Assets/sample1.mp4"
         autoPlay
         loop
         muted
@@ -82,7 +82,7 @@ export const HomePageHeading = () => {
           height: "92%",
           top: "0%",
           transform: "translate(0%,0%)",
-          zIndex: -1,
+          zIndex: -2,
         }}
       />
     </div>

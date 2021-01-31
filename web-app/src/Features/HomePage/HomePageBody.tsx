@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import VizSensor from "react-visibility-sensor";
 import { gsap } from "gsap";
-import { Image, Container, Grid, Segment } from "semantic-ui-react";
+import { Image, Container, Grid } from "semantic-ui-react";
 
 export const HomePageBody = () => {
   useEffect(() => {
