@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import VizSensor from "react-visibility-sensor";
 import { gsap } from "gsap";
-import { Image, Container, Grid } from "semantic-ui-react";
+import { Image, Container, Grid, Header, List } from "semantic-ui-react";
 
 export const HomePageBody = () => {
   useEffect(() => {
@@ -34,14 +34,14 @@ export const HomePageBody = () => {
   function hideLeadingSection(hide: boolean) {
     if (!first)
       if (hide) {
-        gsap.to(".leadingSection", { opacity: 0, delay: 1, duration: 2.4 });
+        gsap.to(".leadingSection", { opacity: 0, delay: 0.4, duration: 2 });
       } else {
         gsap.to(".leadingSection", { opacity: 100 });
         gsap.fromTo(
           ".leadingSectionArrow",
           { opacity: 0, y: -20 },
           {
-            delay: 2,
+            delay: 1,
             opacity: 100,
             duration: 1.6,
             ease: "power3.out",
@@ -52,7 +52,7 @@ export const HomePageBody = () => {
           ".leadingSectionText",
           { opacity: 0, x: -70 },
           {
-            delay: 2,
+            delay: 1,
             opacity: 100,
             duration: 1.2,
             ease: "power2.inOut",
@@ -100,8 +100,95 @@ export const HomePageBody = () => {
           setFirst(false);
         }}
       >
-        <Container>lol</Container>
+        <div style={{ height: "1px" }} />
       </VizSensor>
+
+      <Container
+        textAlign="center"
+        style={{
+          backgroundImage: `url(./Assets/HomePage/TBackground_1.png)`,
+          borderRadius: "50px",
+          width: "80%",
+        }}
+      >
+        <List style={{ padding: "100px" }}>
+          <List.Item>
+            <Header
+              as="h3"
+              content="Ready To Take It To The Next Level?"
+              style={{
+                fontSize: "3em",
+                fontWeight: "bold",
+                paddingBottom: "30%",
+                color: "#DAA7A2",
+              }}
+            />
+          </List.Item>
+          <List.Item
+            style={{
+              // backgroundImage: `url(./Assets/HomePage/how.png)`,
+              // width: "280px",
+              height: "110px",
+              padding: "3%",
+              marginLeft: "auto",
+              marginRight: "auto",
+              paddingBottom: "30%",
+            }}
+          >
+            {/* <br /> */}
+            <Header
+              as="h4"
+              content="Let Us Take Care Of It!"
+              style={{
+                fontSize: "2.5em",
+                color: "#DAA7A2",
+              }}
+            />
+            {/* <br /> */}
+          </List.Item>
+
+          <List.Item>
+            <Header
+              as="h4"
+              content="We Basically..."
+              style={{
+                fontSize: "2.5em",
+                paddingBottom: "30%",
+                color: "#DAA7A2",
+              }}
+            />
+          </List.Item>
+
+          <List.Item>
+            <Image
+              src="./Assets/HomePage/StupidMachine.png"
+              style={{ paddingBottom: "30%" }}
+            />
+          </List.Item>
+
+          <List.Item style={{ position: "relative" }}>
+            <Image
+              src="./Assets/HomePage/6BCDC9_Hex.png"
+              style={{ paddingBottom: "3%" }}
+            />
+            <h1
+              style={{
+                position: "absolute",
+                top: "30%",
+                marginLeft: "10%",
+                marginRight: "10%",
+                color: "white",
+              }}
+            >
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. In,
+              reprehenderit excepturi. Aliquid cupiditate incidunt dicta
+              reiciendis libero ratione doloribus ipsum! Consectetur tempora
+              praesentium reprehenderit consequatur corporis saepe doloremque
+              molestiae in.
+            </h1>
+          </List.Item>
+        </List>
+      </Container>
     </div>
   );
 };
