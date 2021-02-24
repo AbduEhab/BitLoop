@@ -1,7 +1,14 @@
 import React, { useEffect, useState } from "react";
 import VizSensor from "react-visibility-sensor";
 import { gsap } from "gsap";
-import { Image, Container, Grid, Header, List } from "semantic-ui-react";
+import {
+  Image,
+  Container,
+  Grid,
+  Header,
+  List,
+  Button,
+} from "semantic-ui-react";
 
 export const HomePageBody = () => {
   useEffect(() => {
@@ -34,14 +41,14 @@ export const HomePageBody = () => {
   function hideLeadingSection(hide: boolean) {
     if (!first)
       if (hide) {
-        gsap.to(".leadingSection", { opacity: 0, delay: 0.4, duration: 2 });
+        gsap.to(".leadingSection", { opacity: 0, delay: 0.2, duration: 1.4 });
       } else {
         gsap.to(".leadingSection", { opacity: 100 });
         gsap.fromTo(
           ".leadingSectionArrow",
           { opacity: 0, y: -20 },
           {
-            delay: 1,
+            delay: 0.6,
             opacity: 100,
             duration: 1.6,
             ease: "power3.out",
@@ -52,7 +59,7 @@ export const HomePageBody = () => {
           ".leadingSectionText",
           { opacity: 0, x: -70 },
           {
-            delay: 1,
+            delay: 0.6,
             opacity: 100,
             duration: 1.2,
             ease: "power2.inOut",
@@ -64,11 +71,7 @@ export const HomePageBody = () => {
 
   return (
     <div>
-      <Container
-        className="leadingSection"
-        textAlign="center"
-        style={{ paddingBottom: 20 }}
-      >
+      <Container className="leadingSection" style={{ paddingBottom: 20 }}>
         <Grid textAlign="center" columns={2} padded>
           <Grid.Row>
             <Grid.Column>
@@ -94,6 +97,7 @@ export const HomePageBody = () => {
           </Grid.Row>
         </Grid>
       </Container>
+
       <VizSensor
         onChange={(isVisible) => {
           hideLeadingSection(isVisible);
@@ -108,10 +112,17 @@ export const HomePageBody = () => {
         style={{
           backgroundImage: `url(./Assets/HomePage/TBackground_1.png)`,
           borderRadius: "50px",
-          width: "80%",
+          width: "70%",
+          marginBottom: "10%",
         }}
       >
-        <List style={{ padding: "100px" }}>
+        <List
+          style={{
+            padding: "100px",
+            textAlign: "center",
+            justifyContent: "center",
+          }}
+        >
           <List.Item>
             <Header
               as="h3"
@@ -119,55 +130,85 @@ export const HomePageBody = () => {
               style={{
                 fontSize: "3em",
                 fontWeight: "bold",
-                paddingBottom: "30%",
+                paddingBottom: window.innerHeight / 4,
+                paddingTop: "10%",
                 color: "#DAA7A2",
               }}
             />
           </List.Item>
+
           <List.Item
             style={{
-              // backgroundImage: `url(./Assets/HomePage/how.png)`,
-              // width: "280px",
-              height: "110px",
-              padding: "3%",
-              marginLeft: "auto",
-              marginRight: "auto",
-              paddingBottom: "30%",
+              position: "relative",
+              display: "flex",
+              flex: "100%",
+              justifyContent: "center",
+              paddingBottom: window.innerHeight / 4,
             }}
           >
-            {/* <br /> */}
-            <Header
-              as="h4"
-              content="Let Us Take Care Of It!"
+            <Image
+              size="medium"
+              src="./Assets/HomePage/Main_Rec.png"
+              style={{ paddingBottom: "3%" }}
+            />
+            <h1
               style={{
                 fontSize: "2.5em",
-                color: "#DAA7A2",
+                position: "absolute",
+                top: "-7px",
+                // marginLeft: "40%",
+                color: "white",
               }}
-            />
-            {/* <br /> */}
+            >
+              How?
+            </h1>
           </List.Item>
 
-          <List.Item>
-            <Header
-              as="h4"
-              content="We Basically..."
+          <List.Item
+            style={{
+              position: "relative",
+              display: "flex",
+              flex: "100%",
+              justifyContent: "center",
+              paddingBottom: window.innerHeight / 4,
+            }}
+          >
+            <Image
+              size="large"
+              src="./Assets/HomePage/Main_Rec.png"
+              style={{ paddingBottom: "3%" }}
+            />
+            <h1
               style={{
                 fontSize: "2.5em",
-                paddingBottom: "30%",
-                color: "#DAA7A2",
+                position: "absolute",
+                top: "10px",
+                // marginLeft: "40%",
+                color: "white",
               }}
-            />
+            >
+              We Basically...
+            </h1>
           </List.Item>
 
           <List.Item>
             <Image
+              size="massive"
               src="./Assets/HomePage/StupidMachine.png"
-              style={{ paddingBottom: "30%" }}
+              style={{ paddingBottom: "20%" }}
             />
           </List.Item>
 
-          <List.Item style={{ position: "relative" }}>
+          <List.Item
+            style={{
+              position: "relative",
+              display: "flex",
+              flex: "100%",
+              justifyContent: "center",
+            }}
+          >
             <Image
+              size="large"
               src="./Assets/HomePage/6BCDC9_Hex.png"
               style={{ paddingBottom: "3%" }}
             />
@@ -175,17 +216,186 @@ export const HomePageBody = () => {
               style={{
                 position: "absolute",
                 top: "30%",
-                marginLeft: "10%",
-                marginRight: "10%",
+                marginLeft: "30%",
+                marginRight: "30%",
                 color: "white",
               }}
             >
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. In,
-              reprehenderit excepturi. Aliquid cupiditate incidunt dicta
-              reiciendis libero ratione doloribus ipsum! Consectetur tempora
-              praesentium reprehenderit consequatur corporis saepe doloremque
-              molestiae in.
+              reprehenderit excepturi.
             </h1>
+          </List.Item>
+        </List>
+      </Container>
+
+      <Container
+        textAlign="center"
+        style={{
+          backgroundImage: `url(./Assets/HomePage/TBackground_1.png)`,
+          borderRadius: "50px",
+          width: "80%",
+        }}
+      >
+        <List style={{ padding: "100px" }}>
+          <List.Item
+            style={{
+              position: "relative",
+              display: "flex",
+              flex: "100%",
+              justifyContent: "center",
+              paddingBottom: window.innerHeight / 4,
+            }}
+          >
+            <Image
+              size="large"
+              src="./Assets/HomePage/Main_Rec.png"
+              style={{ paddingBottom: "3%" }}
+            />
+            <h1
+              style={{
+                fontSize: "4em",
+                position: "absolute",
+                top: "0px",
+                color: "white",
+              }}
+            >
+              PROCESS
+            </h1>
+          </List.Item>
+          <List.Item
+            style={{
+              display: "flex",
+              position: "relative",
+              flex: "100%",
+              justifyContent: "center",
+              paddingBottom: window.innerHeight / 4,
+            }}
+          >
+            <Button
+              onClick={() => {
+                alert("a7a");
+              }}
+              size="massive"
+              basic
+              color="olive"
+              style={{
+                transform: "translate(230px, 50px) rotate(30deg) ",
+                width: "450px",
+                position: "absolute",
+                zIndex: 2,
+              }}
+            >
+              Olive
+            </Button>
+            <Button
+              onClick={() => {
+                alert("a7a");
+              }}
+              size="massive"
+              basic
+              color="blue"
+              style={{
+                transform: "translate(450px, 430px) rotate(90deg) ",
+                width: "450px",
+                position: "absolute",
+                zIndex: 2,
+              }}
+            >
+              blue
+            </Button>
+            <Button
+              onClick={() => {
+                alert("a7a");
+              }}
+              size="massive"
+              basic
+              color="violet"
+              style={{
+                transform: "translate(230px, 820px) rotate(-30deg) ",
+                width: "450px",
+                position: "absolute",
+                zIndex: 2,
+              }}
+            >
+              violet
+            </Button>
+            <Button
+              onClick={() => {
+                alert("a7a");
+              }}
+              size="massive"
+              basic
+              color="grey"
+              style={{
+                transform: "translate(-220px, 820px) rotate(30deg) ",
+                width: "450px",
+                position: "absolute",
+                zIndex: 2,
+              }}
+            >
+              grey
+            </Button>
+            <Button
+              onClick={() => {
+                alert("a7a");
+              }}
+              size="massive"
+              basic
+              color="red"
+              style={{
+                transform: "translate(-440px, 430px) rotate(-90deg) ",
+                width: "450px",
+                position: "absolute",
+                zIndex: 2,
+              }}
+            >
+              red
+            </Button>
+
+            <Button
+              onClick={() => {
+                alert("a7a");
+              }}
+              size="massive"
+              basic
+              color="pink"
+              style={{
+                transform: "translate(-220px, 50px) rotate(-30deg) ",
+                width: "450px",
+                position: "absolute",
+                zIndex: 2,
+              }}
+            >
+              pink
+            </Button>
+            <Image
+              size="huge"
+              src="./Assets/HomePage/MAINProcess_Hex.png"
+              style={{ paddingBottom: "3%" }}
+            />
+            {/* <div style={{ position: "absolute", zIndex: 1 }}>
+              <Image
+                size="huge"
+                src="./Assets/HomePage/1D7769_Hex.png"
+                style={{
+                  transform: "translate(135px, -17px)",
+                  width: "75%",
+                }}
+              />
+              <h1
+                style={{
+                  position: "absolute",
+                  top: "300px",
+                  color: "white",
+                  margin: "20%",
+                  textSizeAdjust: "80%",
+                }}
+              >
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas
+                consectetur veritatis mollitia aperiam, qui quae sapiente eius
+                enim! Reprehenderit, commodi?
+              </h1>
+            </div> */}
           </List.Item>
         </List>
       </Container>
